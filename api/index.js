@@ -15,7 +15,7 @@ const User = require('./models/User')
 
 //------------------------------------
 
-
+//lol
 app.use(cors({credentials:true,origin:'http://localhost:3000'}))
 app.use(express.json()) // for parsing application/json
 app.use(cookieParser())
