@@ -1,0 +1,366 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+  box-sizing: border-box;
+}
+
+body{
+  color: #333;
+  background-color: rgba(229,225,229);
+}
+                        /* Header / Home-Page STYLES */
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=- */
+main{
+  padding:20px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+header{
+  font-family: 'Noto Sans';
+  font-weight: 550;
+  font-size: larger;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 60px;
+  /* background-color: red; */
+  padding-right: 20px;
+}
+.header_title{
+  display: flex;
+  /* position: relative; */
+  margin: -45px;
+  font-family: 'Roboto';
+  font-size: 22px;
+  font-weight: 700;
+}
+header a{
+  text-decoration: none;
+  color:inherit
+}
+header a.logo{
+  font-weight: bolder;
+}
+header nav{
+  display: flex;
+  gap: 20px;
+}
+.Site_title_container{
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+div.post {
+
+  margin-bottom: 50px;
+  width:100%;
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 30px;
+  grid-template-rows: 400px;
+}
+div.post div.image{
+  /* background-color: yellow; */
+  width: auto;
+  max-width: 100%;
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+div.post div.texts h2{
+  margin: 0;
+  font-size: 2rem;
+}
+div.post p.info{
+  margin:6px 0;
+  color: #888;
+  font-size: .9rem;
+  font-weight: bold;
+  
+  display: flex;
+  gap: 15px;
+}
+.header_img{
+  display: flex;
+  height: 70px;
+  /* background-color: yellow; */
+}
+.createPost:hover, .logOut:hover ,.header_login:hover,.header_register:hover{ 
+  color: #904cac;
+  cursor: pointer;
+}
+div.post p.info a.author{
+  color: #333;
+}
+div.post p.summary{
+ margin: 6;
+}
+                        /* Login-page / register-page Style */                            
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=- */
+
+.login_bg,.register_bg {
+  background-image: url('./assests/background7L.png');
+  /* opacity: 0.9; */
+  background-size: cover; /* This makes the image cover the whole page */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  height: 100%; /* Takes up the full viewport height */
+  width: 100%; 
+  position: absolute; /* Stretches it across the whole page */
+  top: 0;
+  /* transform: scale(1.1); */
+  left: 0;
+  right: 60px;
+  /* overflow: hidden; */
+  z-index: -1; /* Sends it to the background behind other content */
+}
+
+
+.login_container,.register_container{
+  /* background-color: red; */
+  /* border: rgb(82, 13, 82) solid 3px; */
+  border-radius: 15px;
+  padding: 0;
+  /* border: black solid 1px; */
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  /* box-shadow: rgba(0, 0, 0, 0.2) 0px -20px 35px 15px; */
+  
+  gap: 35px;
+  
+  background: linear-gradient(to bottom, rgba(237,237,237,255)20%, transparent);
+  /* background-color:  rgba(237,237,237,255); */
+  /* centering container */
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+
+  /* centering contents */
+
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between; 
+  /* align-items: center;  */
+  height: 65vh;    
+  width: 100vh; 
+
+}
+
+.login_header_desc,.register_header_desc{
+  color: grey;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 25px;
+  font-family: 'Noto Sans';
+}
+.login_creds_container,.register_creds_container{
+
+position: relative;
+flex: 1;
+justify-content: space-around;
+/* left : 24vh; */
+/* background-color: rebeccapurple; */
+margin: 40px;
+padding: 0;
+height: 50vh;    
+width: 100; 
+
+}
+.register_creds_container{
+  position: relative;
+  /* background-color: #888; */
+  flex: 1;
+  justify-content: space-around;
+  /* left : 24vh; */
+  /* background-color: rebeccapurple; */
+  margin: 40px;
+  padding: 0;
+  height: 80%;    
+  width: 100%; 
+
+}
+
+.login_container input,.register_container input{
+  margin-bottom: 40px;
+  height: 45px;
+  width: 400px;
+  border-radius: 2px;
+  background-color: #3333331a;
+  
+}
+
+.login_container .login_input_boxes input::placeholder{
+  color: black;
+  padding-left: 5px !important;
+  position: relative;
+  background: linear-gradient(to bottom, rgba(237,237,237,255)20%, transparent);
+}
+.login_container .login_header,.register_container .register_header{
+  margin-bottom: -10px;
+  display: flex;
+  justify-content: space-around;
+  font-size: 40px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.login_input_headers,.login_input_headers{
+
+  font-family:'Noto Sans' ;
+  font-weight: 450;
+}
+.login_input_boxes,.register_input_boxes{
+ 
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.login_input_boxes input,.register_input_boxes input{
+ 
+  border-style: none;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  margin-top: -10px;
+  padding-left: 10px;
+  /* background-color: red; */
+  background-color: rgba(237,237,237,255);
+  outline: none;
+  border: rgba(128, 128, 128, 0.247) solid 1px;
+
+}
+
+.login_container .login_button,.register_container .register_button{
+  border: none;
+  margin-top: -10px;
+  width: 400px;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 17px;
+  background-color:#904cac;
+  outline: none;
+  color: white;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.login_sign_up{
+  display: flex;
+  font-family: 'Noto Sans';
+  justify-content: center;
+  cursor: pointer;
+}
+
+.login_graphic_container,.register_graphics_container{
+  /* position: relative; */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  /* background: linear-gradient(to right, #e1dce6 97%, transparent 100%); */
+  background: linear-gradient(to bottom, #e8e4ec 10%, transparent);
+  /* background-color: #e8e4ec; */
+  /* border: black solid 1px; */
+  border-radius: 15px;
+  margin: 0;
+  padding: 40px;
+  height: 100%;
+  width: 100%;
+}
+
+.login_graphic_container .graphic_logo{
+  display: flex;
+  height: 250px;
+  width: 320px;
+  margin-top: 40px;
+  margin-bottom: 15px;
+
+  /* background-color: peru; */
+}
+.register_graphics_container .graphic_logo{
+  display: flex;
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+  height: 41vh;
+  width: 44vh;
+  margin-top: -62px;
+  /* bottom: 31px; */
+  
+  border-radius: 10px;
+  padding: 0;
+
+}
+.login_graphic_container .graphic_title{
+  text-align: center;
+  color: rgba(0, 0, 0, 0.705);
+  /* white-space: nowrap; */
+  font-family: "Roboto";
+  font-weight: 600;
+  font-size:30px;
+  font-style: normal;
+  line-height: 32px;
+  margin-bottom: 0px;
+  /* max-width: 50%;
+  max-height: 40%; */
+}
+.login_graphic_container .graphic_title2{
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto";
+  font-weight: 600;
+  font-size: 22px;
+}
+.login_graphic_container .graphic_desc{
+  color: rgba(49, 49, 49, 0.692);
+  font-family: 'Noto Sans';
+  font-weight: 450;
+  font-size: 15px;
+  text-align: center;
+  margin-bottom: 45px;
+  /* background-color: red; */
+}
+.register_graphics_container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 0;
+  margin: 0;
+  /* overflow: hidden; */
+  /* gap: -10px; */
+}
+
+.register_graphics_container .graphic_title{
+  text-align: center;
+  color: rgba(0, 0, 0, 0.705);
+  /* white-space: nowrap; */
+  font-family: "Roboto";
+  font-weight: 600;
+  font-size: 25px;
+  font-style: normal;
+  line-height: 32px;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+ 
+  
+}
+.register_graphics_container .graphic_desc{
+  color: rgba(49, 49, 49, 0.692);
+  font-family: 'Noto Sans';
+  font-weight: 450;
+  font-size: 15px;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 30px;
+  margin: 0;
+
+}
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=- */

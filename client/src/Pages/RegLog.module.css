@@ -1,0 +1,47 @@
+
+.login_container,.register_container{
+    /* background-color: red; */
+    border: rgb(0, 0, 0) solid 3px;
+    border-radius: 40px;
+    box-shadow: 2px 2px 5px rgb(0, 0, 0);
+  
+    /* centering container */
+  
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  
+    /* centering contents */
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    align-items: center; 
+    height: 40vh;    
+    width: 60vh; 
+  
+  }
+  .login_container input, .register_container input{
+    margin-bottom: 40px;
+    height: 35px;
+    width: 250px;
+    border-radius: 2px;
+    background-color: #3333331a;
+  }
+  
+  .login_container input::placeholder, .register_container input::placeholder{
+    color: black;
+  }
+  .login_container .login_header,.register_container .register_header{
+    margin-bottom: 55px;
+    font-size: 40px;
+  }
+  .login_container .login_button,.register_container .register_button{
+    margin-top: 5px;
+    width: 130px;
+    height: 30px;
+  }
+  /* .register_container{
+    background-color: #333 ;
+  } */
