@@ -1,25 +1,41 @@
+// Core Modules
 const express = require('express');
 const cors = require('cors');
+const cookieParser=require('cookie-parser');
+require("dotenv").config();
+const fs = require('fs')
+
+//------------------------------------
+// DataBase
 const mongoose = require('mongoose');
+// Models
+const User = require('./models/User');
+const Post = require('./models/Post.js');
+
+//------------------------------------
+// Application Initialization
 const app = express();
-const cookieParser=require('cookie-parser')
+
+//------------------------------------
+// Security and Authentication
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-require("dotenv").config();
+
 //------------------------------------
+// Secret Keys
 const jwt_secret=process.env.JWT_SECRET
 const salt = bcrypt.genSaltSync(10);
-//------------------------------------
-// Models
-const User = require('./models/User')
 
 //------------------------------------
-
-//lol
+// MiddleWare
 app.use(cors({credentials:true,origin:'http://localhost:3000'}))
 app.use(express.json()) // for parsing application/json
 app.use(cookieParser())
+const multer = require('multer');
+const uploadMiddleware = multer({ dest: 'uploads/' })
 
+
+//--------------------------------------------------------------------------------
 
 mongoose.connect(process.env.DB_CONNECTION)
 .then(()=>{
@@ -92,12 +108,20 @@ app.post('/logout',(req,res)=>{
 })
 app.listen(4000);
 
+app.post('/post',uploadMiddleware.single('file'),async(req,res)=>{
+    const {originalname,path} = req.file;
+    const split_original_name = originalname.split('.');
+    const ext = split_original_name[split_original_name.length - 1];
+    const newPath = path+"."+ext;
+    fs.renameSync(path,newPath);
 
+    const {title,summary,content} = req.body;
+    const postDoc = await Post.create({
+        title,
+        summary,
+        content,
+        cover:newPath,
+    })
+     res.json(postDoc)
+})
 
-
-
-
-//username : hareeshpadmanathan
-//password : s3uFf3gsLDlYby35
-
-// connection String : mongodb+srv://hareeshpadmanathan:s3uFf3gsLDlYby35@blogentries.tjiyi.mongodb.net/?retryWrites=true&w=majority&appName=BlogEntries
