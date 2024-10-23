@@ -124,34 +124,29 @@ div.post p.summary{
 
 
 .login_container,.register_container{
-  /* background-color: red; */
-  /* border: rgb(82, 13, 82) solid 3px; */
+ 
   border-radius: 15px;
   padding: 0;
-  /* border: black solid 1px; */
   box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
   /* box-shadow: rgba(0, 0, 0, 0.2) 0px -20px 35px 15px; */
   
   gap: 35px;
   
   background: linear-gradient(to bottom, rgba(237,237,237,255)20%, transparent);
-  /* background-color:  rgba(237,237,237,255); */
-  /* centering container */
 
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
 
-  /* centering contents */
-
   display: flex;
   flex-direction: row;
   justify-content:space-between; 
-  /* align-items: center;  */
+
   height: 65vh;    
   width: 100vh; 
 
+  animation:fade-up 0.5s ease-out   ;
 }
 
 .login_header_desc,.register_header_desc{
@@ -364,3 +359,16 @@ width: 100;
 
 }
 /* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=- */
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -30%);
+  }
+  50%{
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%); 
+  }
+}
