@@ -34,6 +34,8 @@ app.use(cookieParser())
 const multer = require('multer');
 const uploadMiddleware = multer({ dest: 'uploads/' })
 
+app.use('/uploads',express.static(__dirname + '/uploads'))
+
 
 //--------------------------------------------------------------------------------
 
@@ -115,13 +117,33 @@ app.post('/post',uploadMiddleware.single('file'),async(req,res)=>{
     const newPath = path+"."+ext;
     fs.renameSync(path,newPath);
 
-    const {title,summary,content} = req.body;
-    const postDoc = await Post.create({
-        title,
-        summary,
-        content,
-        cover:newPath,
+
+    const {token} = req.cookies;
+
+        if(!token){
+            return null
+        }
+        jwt.verify(token,jwt_secret,{},async(err,info)=>{
+            if(err) throw err;
+
+
+        const {title,summary,content} = req.body;
+        const postDoc = await Post.create({
+            title,
+            summary,
+            content,
+            cover:newPath,
+            author:info.id,
+        });
     })
-     res.json(postDoc)
+
+
+
+
 })
 
+app.get('/post',async (req,res)=>{
+    res.json(await Post.find()
+    .populate('author',['username']).sort({createdAt:-1})
+    .limit(10))
+})

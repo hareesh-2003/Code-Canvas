@@ -1,22 +1,37 @@
-import entryImg2 from "../assests/land.jpg"
+import ReactQuill from "react-quill";
+import entryImg2 from "../assests/land.jpg";
+import { Link } from "react-router-dom";
+
+//======================================================
+import TimeAgo from 'javascript-time-ago'
+import ReactTimeAgo from 'react-time-ago'
+
+import en from 'javascript-time-ago/locale/en'
+import ru from 'javascript-time-ago/locale/ru'
+
+TimeAgo.addDefaultLocale(en)
+TimeAgo.addLocale(ru)
+//======================================================
 
 
-
-function Post(){
+function Post({title,summary,cover,content,createdAt,author}){
     return(
     <div className="post">
         <div className="image">
-          <img src={entryImg2} alt="not Loaded" />
+          <Link to="/post/id">
+            <img src={'http://localhost:4000/'+cover} alt="not Loaded" />
+          </Link>
         </div>
         <div className="texts">
-          <h2>Portrait of a Contemplative Gentleman in Early 20th Century Elegance (1910)</h2>
+        <Link to="/post/id">
+          <h2 className="blog_title">{title}</h2>
+        </Link>
           <p className="info">
-            <a className="author">P Hareesh</a>
-            <time>11-09-01 5:41 AM</time>
+            <a className="author">{author.username}</a>
+            {/* <p>{createdAt}</p> */}
+            <time><ReactTimeAgo date={createdAt} locale="en"/></time>
           </p>
-          <p className="summary">This striking portrait, painted in 1910, captures a pensive man in formal attire, 
-            likely from the early 20th century. 
-            The subtle yet expressive brushwork emphasizes his relaxed posture and thoughtful demeanor. 
+          <p className="summary">{summary}
             </p>
         </div>
     </div>

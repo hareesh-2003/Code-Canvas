@@ -71,9 +71,7 @@ div.post div.image{
   max-width: 100%;
   display: flex;
   justify-content: flex-end;
-
 }
-
 div.post div.texts h2{
   margin: 0;
   font-size: 2rem;
@@ -362,11 +360,9 @@ width: 100;
 @keyframes fade-up {
   0% {
     opacity: 0;
-    transform: translate(-50%, -30%);
+    transform: translate(-50%, -40%);
   }
-  50%{
-    opacity: 0.5;
-  }
+
   100% {
     opacity: 1;
     transform: translate(-50%, -50%); 
