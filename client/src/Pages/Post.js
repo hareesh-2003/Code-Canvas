@@ -14,16 +14,16 @@ TimeAgo.addLocale(ru)
 //======================================================
 
 
-function Post({title,summary,cover,content,createdAt,author}){
+function Post({_id,title,summary,cover,content,createdAt,author}){
     return(
     <div className="post">
         <div className="image">
-          <Link to="/post/id">
+          <Link to={`/post/${_id}`}>
             <img src={'http://localhost:4000/'+cover} alt="not Loaded" />
           </Link>
         </div>
         <div className="texts">
-        <Link to="/post/id">
+        <Link to={`/post/${_id}`}>
           <h2 className="blog_title">{title}</h2>
         </Link>
           <p className="info">

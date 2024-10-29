@@ -1,6 +1,9 @@
 import logo from "../assests/LogoSD.png"
 import background from "../assests/background.jpg"
 
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+
 
 import { useContext, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
@@ -45,7 +48,7 @@ export default function LoginPage(){
  
     }
     if(redirect){
-        console.log('in nav');
+        // console.log('in nav');
         return <Navigate to={'/'}/>
     }
 
@@ -79,11 +82,15 @@ return(
         <div className="login_input_boxes">
 
             <p className="login_input_headers">Username</p>
-            <input type="text" className="blah_pls" value={username} onChange={ev=>setUsername(ev.target.value)} placeholder="Enter your username..." /><br />
+
+            {/* <TextField id="standard-basic" className="login_buttons" variant="standard" /> */}
+            <input type="text" className="login_buttons" value={username} onChange={ev=>setUsername(ev.target.value)} placeholder="Enter your username..." /><br />
                     
             <p className="login_input_headers" >Password</p>
-            <input type="password" value={password} onChange={ev=>setPassword(ev.target.value)} placeholder="Enter your password..." /><br />
-            
+            {/* <TextField id="standard-basic" className="login_buttons"  variant="standard" /> */}
+            <input type="password" className="login_buttons" value={password} onChange={ev=>setPassword(ev.target.value)} placeholder="Enter your password..." /><br />
+        
+           
          </div>
 
          {loginError && <p style={{textAlign:'center',color:'red',fontFamily:'Noto Sans',fontWeight:'550', marginTop:'-20px',marginBottom:'25px'}}>Wrong Credentials</p>}

@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Prociono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 *{
   box-sizing: border-box;
@@ -39,7 +40,7 @@ header{
   font-size: 22px;
   font-weight: 700;
 }
-header a{
+a{
   text-decoration: none;
   color:inherit
 }
@@ -57,20 +58,33 @@ header nav{
   padding: 0;
 }
 div.post {
-
   margin-bottom: 50px;
+  /* box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px; */
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  /* box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px; */
+
+  background-color: rgba(255, 255, 255, 0.466);
   width:100%;
   display: grid;
-  grid-template-columns: .8fr 1.2fr;
-  gap: 30px;
-  grid-template-rows: 400px;
+  grid-template-columns: .8fr 1.1fr;
+  padding-right: 10px;
+  grid-template-rows: 1fr;
+  border: #c3c1e3 solid 3px;
+  border-radius: 10px;
 }
 div.post div.image{
-  /* background-color: yellow; */
-  width: auto;
-  max-width: 100%;
   display: flex;
-  justify-content: flex-end;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 8px;
+}
+div.post div.image img{
+  max-width: 100%; 
+  max-height: 100%;
+  /* height: 450px;  */
+  object-fit: cover; 
 }
 div.post div.texts h2{
   margin: 0;
@@ -99,6 +113,24 @@ div.post p.info a.author{
 }
 div.post p.summary{
  margin: 6;
+ font-size: 15px;
+ color: rgba(0, 0, 0, 0.651);
+}
+.blog_title{
+  text-decoration: none !important;
+  color: inherit;
+  
+}
+
+.blogentries{
+  /* display: grid; */
+  /* border: red solid 2px; */
+  display: grid;
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 50% 50%;
+  gap: 20px;
+  /* padding: 5px; */
+
 }
                         /* Login-page / register-page Style */                            
 /* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=- */
@@ -119,6 +151,7 @@ div.post p.summary{
   /* overflow: hidden; */
   z-index: -1; /* Sends it to the background behind other content */
 }
+
 
 
 .login_container,.register_container{
@@ -190,13 +223,8 @@ width: 100;
   
 }
 
-.login_container .login_input_boxes input::placeholder{
-  color: black;
-  padding-left: 5px !important;
-  position: relative;
-  background: linear-gradient(to bottom, rgba(237,237,237,255)20%, transparent);
-}
 .login_container .login_header,.register_container .register_header{
+
   margin-bottom: -10px;
   display: flex;
   justify-content: space-around;
@@ -204,6 +232,7 @@ width: 100;
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-style: normal;
+
 }
 .login_input_headers,.login_input_headers{
 
@@ -223,10 +252,9 @@ width: 100;
   margin-bottom: 10px;
   margin-top: -10px;
   padding-left: 10px;
-  /* background-color: red; */
   background-color: rgba(237,237,237,255);
   outline: none;
-  border: rgba(128, 128, 128, 0.247) solid 1px;
+  border: rgba(128, 128, 128, 0.247) solid 2px;
 
 }
 
@@ -367,4 +395,23 @@ width: 100;
     opacity: 1;
     transform: translate(-50%, -50%); 
   }
+}
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=- */
+.Home_title{  
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+  
+    display: flex;
+    justify-content: center;
+    font-family: "Prociono", serif;
+    font-weight: 800;
+    font-size: 80px;
+    width: 50%;
+    text-align: center;
+    font-style: normal;
+  
+    margin-bottom: 600px;
+
+  
 }

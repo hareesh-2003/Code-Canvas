@@ -28,9 +28,9 @@ const salt = bcrypt.genSaltSync(10);
 
 //------------------------------------
 // MiddleWare
-app.use(cors({credentials:true,origin:'http://localhost:3000'}))
-app.use(express.json()) // for parsing application/json
-app.use(cookieParser())
+app.use(cors({credentials:true,origin:'http://localhost:3000'}));
+app.use(express.json()); // for parsing application/json
+app.use(cookieParser());
 const multer = require('multer');
 const uploadMiddleware = multer({ dest: 'uploads/' })
 
@@ -136,14 +136,22 @@ app.post('/post',uploadMiddleware.single('file'),async(req,res)=>{
             author:info.id,
         });
     })
-
-
-
-
 })
 
 app.get('/post',async (req,res)=>{
     res.json(await Post.find()
     .populate('author',['username']).sort({createdAt:-1})
     .limit(10))
+})
+app.get('/post/:id',async (req,res)=>{
+   const {id} = req.params;
+   const PostDoc = await Post.findById(id).populate('author',['username'])
+   res.json(PostDoc);
+})
+
+
+app.delete('/post/:id',async(req,res)=>{
+    const {id} = req.params;
+    const PostDoc = await Post.findByIdAndDelete(id)
+    res.json('ok')
 })

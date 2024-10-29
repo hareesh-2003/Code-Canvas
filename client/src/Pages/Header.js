@@ -12,7 +12,7 @@ function Header(){
       credentials:'include',
     }).then(response =>{
         response.json().then(userInfo =>{
-          console.log(userInfo);
+          // console.log(userInfo);
           
           setUserInfo(userInfo)
         });

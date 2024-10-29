@@ -2,6 +2,10 @@ import { Form } from "react-router-dom";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+
 import styles from './Styles/CreatePost.module.css'
 import { useState } from "react";
 
@@ -59,9 +63,33 @@ function createNewPost(ev){
     }
     return(
       <form enctype="multipart/form-data" onSubmit={createNewPost}>
-            <input className={styles.title} value={title} onChange={ev=>settitle(ev.target.value)} type="text" placeholder="Title" /><br/>
-            <input className={styles.summary} value={summary} onChange={ev=>setsummary(ev.target.value)} type="summary" placeholder="Summary" /><br/>
+            {/* <input className={styles.title} value={title} onChange={ev=>settitle(ev.target.value)} type="text" placeholder="Title" /><br/> */}
+            <TextField
+              id="outlined-textarea"
+              label="Title"
+              placeholder="Placeholder"
+              multiline
+              className={styles.title} value={title} onChange={ev=>settitle(ev.target.value)}
+              slotProps={{
+                htmlInput: { maxLength: 55 }
+                
+            }}
+        />
+
+            <TextField
+              id="outlined-textarea"
+              label="Summary"
+              placeholder="Placeholder"
+              multiline
+              className={styles.summary} value={summary} onChange={ev=>setsummary(ev.target.value)}
+              slotProps={{
+                htmlInput: { maxLength: 700 }
+                
+            }}
+        />
+            {/* <input className={styles.summary} value={summary} onChange={ev=>setsummary(ev.target.value)} type="summary" placeholder="Summary" /><br/> */}
             <input className={styles.files} onChange={ev=>setFiles(ev.target.files)} type="file"/>
+            {/* <Button className={styles.files} onChange={ev=>setFiles(ev.target.files)} type="file" variant="contained">Upload Image</Button> */}
 
             <ReactQuill value={content} onChange={value=>setContent(value)} modules={modules}/>
             <button value={button} classame={styles.button}>Create Post</button>
