@@ -108,7 +108,7 @@ app.get('/profile',(req,res)=>{
 app.post('/logout',(req,res)=>{
     res.cookie('token','').json('Logged Out')
 })
-app.listen(4000);
+app.listen(process.env.PORT || 4000);
 
 app.post('/post',uploadMiddleware.single('file'),async(req,res)=>{
     const {originalname,path} = req.file;
