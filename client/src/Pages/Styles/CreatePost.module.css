@@ -1,12 +1,38 @@
+body{
+    /* background-color: rgba(229,225,229); */
+}
+.createPostContainer{
+    /* background-color: red; */
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    border: solid black 2px;
+    padding: 20px;
+    border-radius: 20px;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.47/9);
+}
+
 form{
         display: flex;
         flex-direction: column;
         padding:20px;
         max-width: 1500px;
         margin: 0 auto;
-        gap: 20px;  
+        gap: 40px;  
+        /* height: 80%; */
+        /* background-color: antiquewhite; */
 }
-#outlined-textarea{
-    width: 100%;
-    background-color: red;
+.title ,.summary ,.content{
+    border: solid 1px black;
+    border-radius: 10px;
+}
+
+
+.cp_title{
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-family: "Inter", Helvetica, arial, sans-serif;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 700;
 }

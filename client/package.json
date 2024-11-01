@@ -14,6 +14,7 @@
     "date-fns": "^4.1.0",
     "framer-motion": "^11.11.10",
     "javascript-time-ago": "^2.5.11",
+    "quill-image-resize-module-react": "^3.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-quill": "^2.0.0",

@@ -1,7 +1,10 @@
 import { useContext, useEffect, useState } from "react";
+import * as React from 'react';
+import Button from '@mui/material/Button';
 import { Link, NavLink } from "react-router-dom";
 import { UserContext } from "../UserContext";
-import logo from "../assests/LogoRL.png"
+import logo from "../assests/LogoRL.png";
+import Snackbar from '@mui/material/Snackbar';
 
 function Header(){
 
@@ -30,8 +33,9 @@ function Header(){
       })
     })
     setUserInfo(null)
-
   }
+
+
 
   const username = userInfo?.username
   
@@ -58,6 +62,9 @@ return(
       <NavLink to="/createPost" className="createPost">Create a Post</NavLink>
       <span>|</span>
       <a className="logOut" onClick={logout}>Logout</a>
+      
+      
+    
       </>}
 
     </nav>

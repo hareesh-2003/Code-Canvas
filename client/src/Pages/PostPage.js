@@ -34,7 +34,6 @@ function PostPage(){
         .then(response=>{
             response.json().then(PostInfo=>{
                 console.log(PostInfo);
-                
                 SetPostInfo(PostInfo)
             })
         })
@@ -57,35 +56,24 @@ function PostPage(){
 
     return(
         <>  
-            <time>{format(new Date(PostInfo.createdAt),"'Created on 'dd-MM-yyyy")}</time>
-            <div>{PostInfo.title} </div><br />
-            <div>{PostInfo.summary} </div>
+        <div className="blog_post">
+            <div className={styles.title}>{PostInfo.title} </div><br />
+            
+            <time className={styles.time}>By {PostInfo.author.username} &bull; {format(new Date(PostInfo.createdAt),"dd-MM-yyyy")}</time>
+            {/* <hr style={{opacity:0.5}}/> */}
             <div className={styles.files}>
                 <img src={`http://localhost:4000/${PostInfo.cover}`} alt="" />
             </div>
-            <div dangerouslySetInnerHTML={{__html:PostInfo.content}}/>
-            <button onClick={DeletePost}>Delete </button>
-            {/* <Button variant="outlined" color="error">
-                Delete
-            </Button> */}
+            {/* <hr style={{opacity:0.5}}/> */}
+            <div className={styles.summary}>{PostInfo.summary} </div>
+            <hr style={{opacity:0.2}}/>
+            <div className={styles.content} dangerouslySetInnerHTML={{__html:PostInfo.content}}/>
 
-            <Button variant="outlined" style={{color:'red', border:'red'}} color="secondary" startIcon={<DeleteIcon />}>
+
+            <Button className={styles.delete} onClick={DeletePost} variant="outlined" style={{color:'red', border:'red'}} color="secondary" startIcon={<DeleteIcon />}>
                     Delete
             </Button>
-            <TextField
-          id="outlined-textarea"
-          label="Summary"
-          placeholder="Placeholder"
-          multiline
-          style={{width:'900px'}}
-          slotProps={{
-            htmlInput: { maxLength: 770 }
-            }}
-        />
-
-      <TextField id="filled-basic" label="Filled" variant="filled" />
-      <TextField id="standard-basic" label="Standard" variant="standard" />
-
+        </div>
         </>
     )
 }
