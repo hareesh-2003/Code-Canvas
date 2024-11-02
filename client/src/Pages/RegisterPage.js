@@ -5,6 +5,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 export default function  RegisterPage(){
 
     const navigate = useNavigate();
+    const [register_err,setregister_err] = useState('');
     const [username,setusername] = useState('');
     const [password,setpassword] = useState('');
 
@@ -18,14 +19,17 @@ export default function  RegisterPage(){
         })
         if(api_reponse.status !== 200){
            const api_response_data = await api_reponse.json();
-            alert(`Registration Failed \n \n Error: ${api_response_data.error}`)
+            setregister_err(`Registration Failed: ${api_response_data}`)
+            // alert(`Registration Failed \n \n Error: ${register_err}`)
         }else{
-            alert('Registration Successful')
+
+            setregister_err("Registration Successful")
+            // alert('Registration Successful')
         }
         
     }
     function nav_login(){
-        navigate('/login')
+        navigate('/login');
     }
     return(
         <>
@@ -58,6 +62,8 @@ export default function  RegisterPage(){
 
                     </div>
 
+                    {register_err && <p style={{textAlign:'center',fontFamily:'Noto Sans',fontWeight:'450', marginTop:'-20px',marginBottom:'25px'}}>
+                        {register_err}</p>}
                     <button className="register_button">Register</button>
                     <p className="login_sign_up">Already Have an account? <span onClick={nav_login} style={{color:"purple", marginLeft:'5px'}}>Log in</span></p>
                   
